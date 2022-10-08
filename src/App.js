@@ -1,28 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import DisplayPosts from './Components/DisplayPosts/DisplayPosts';
+//import DisplayPosts from './Components/DisplayPosts/DisplayPosts';
 import axios from 'axios';
-
-
 
 function App() {
 
-useEffect(() => {
-  const response = await axios.get('http://127.0.0.1:8000/music/')
-})
+  const [songs, setSongs] = useState([]);
 
-const [posts, setPosts] = useState([])
+  useEffect(() => {
+    getAllSongs();
+}, []);
 
-function addNewPost(post){
-  let tempPost=[...posts,post];
+async function getAllSongs(){
+  const response = await axios.get('http://127.0.0.1:8000/music/');
+  console.log(response.data);
+  setSongs(response.data)
 
-  setPosts(tempPost);
 }
 
-  return (
-    <div className="parent">
-      <DisplayPosts parentPost={posts}/>
-      <PostEntry addnewPostProperty={addNewPost} />
 
+  return (
+    <div>
+      <button onClicks={() => getAllSongs()}>Get All Songs</button>
     </div>
   );
 }
