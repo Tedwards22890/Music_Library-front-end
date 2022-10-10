@@ -1,11 +1,37 @@
 import React, { useEffect, useState } from 'react';
-//import DisplayPosts from './Components/DisplayPosts/DisplayPosts';
 import axios from 'axios';
+//import SongSearch from './Components/SongSearch/SongSearch';
+import SongEntry from './Components/PostSong/SongEntry';
+import DisplaySongs from './Components/DisplaySongs/DisplaySongs';
+
 
 function App() {
 
-  const [songs, setSongs] = useState([]);
+  const [songs, setSongs] = useState([{title: "Title", artist: "Artist", album:"Album",release:"Release Date",genre:"Genre"}]);
 
+function addNewSong(song){
+  let tempSong=[...songs, song];
+
+  setSongs(tempSong);
+}
+
+
+  return (
+    <div>
+      {/*<SongSearch filteredSongs={songs}/>*/}
+      <DisplaySongs parentSongs={songs} />
+      <br/>
+      <SongEntry addNewSongProperty={addNewSong} />
+
+
+    </div>
+  );
+}
+
+export default App;
+
+
+/*
   useEffect(() => {
     getAllSongs();
 }, []);
@@ -16,13 +42,4 @@ async function getAllSongs(){
   setSongs(response.data)
 
 }
-
-
-  return (
-    <div>
-      <button onClicks={() => getAllSongs()}>Get All Songs</button>
-    </div>
-  );
-}
-
-export default App;
+*/
