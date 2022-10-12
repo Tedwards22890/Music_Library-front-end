@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import './SongEntry.css'
 
@@ -6,32 +7,32 @@ const SongEntry = (props) => {
     const [title, setTitle] = useState('');
     const [artist, setArtist] = useState('');
     const [album, setAlbum] = useState('');
-    const [release, setRelease] = useState('');
+    const [release_date, setRelease_date] = useState('');
     const [genre, setGenre] = useState('');
 
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-        let newSong = {
+        const newSong = {
             title: title,
             artist: artist,
             album: album,
-            release: release,
+            release_date: release_date,
             genre: genre,
 
         };
-        if (title===''|| artist==='' || album==='' ||release===''||genre==='')
+        if (title===''|| artist==='' || album==='' ||release_date===''||genre==='')
         {
             alert('Please be sure all fields are filled out!')
         }
         else 
         {
             console.log({newSong});
-            props.addNewSongProperty(newSong);
+            axios.post('http://127.0.0.1:8000/music/', newSong)
             setTitle("")
             setArtist("")
             setAlbum("")
-            setRelease("")
+            setRelease_date("")
             setGenre('')
 
         }
@@ -42,7 +43,6 @@ const SongEntry = (props) => {
             <center>
                 <div className="grid-container">
                     <div classname="grid-item">
-
                     <input type="text" placeholder="Title" value={title} onChange={(event) => setTitle(event.target.value)}/>
                     </div>
 
@@ -58,7 +58,7 @@ const SongEntry = (props) => {
 
                     <div classname="grid-item">
 
-                    <input type="text" placeholder="Release Date" value={release} onChange={(event) => setRelease(event.target.value)}/>
+                    <input type="date" placeholder="Release Date" value={release_date} onChange={(event) => setRelease_date(event.target.value)}/>
                     </div>
 
                     <div classname="grid-item">

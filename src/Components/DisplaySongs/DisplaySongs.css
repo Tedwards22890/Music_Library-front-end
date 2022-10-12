@@ -1,6 +1,6 @@
 .grid-container {
     display: grid;
-    grid-template-columns: 300px 300px 300px 100px 300px;
+    grid-template-columns: 300px 300px 300px 100px 300px 100px;
     column-gap: 0px;
     row-gap: 1px;
     place-content: center;
@@ -15,4 +15,14 @@
     padding: 1px;
     text-align: center;
     font-size: 16px;
+}
+.titles {
+    display: grid;
+    grid-template-columns: 300px 300px 300px 200px 300px;
+    column-gap: 0px;
+    row-gap: 1px;
+    place-content: center;
+    font-size: large;
+    font-weight: bold;
+
 }
