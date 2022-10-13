@@ -18,7 +18,7 @@
 }
 .titles {
     display: grid;
-    grid-template-columns: 300px 300px 300px 200px 300px;
+    grid-template-columns: 200px 200px 200px 200px 200px;
     column-gap: 0px;
     row-gap: 1px;
     place-content: center;

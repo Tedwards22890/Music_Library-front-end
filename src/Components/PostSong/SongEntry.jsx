@@ -42,32 +42,32 @@ const SongEntry = (props) => {
         <form onSubmit={handleSubmit} className="form-grid">
             <center>
                 <div className="grid-container">
-                    <div classname="grid-item">
+                    <div className="grid-item">
                     <input type="text" placeholder="Title" value={title} onChange={(event) => setTitle(event.target.value)}/>
                     </div>
 
-                    <div classname="grid-item">
+                    <div className="grid-item">
 
                     <input type="text" placeholder="Artist" value={artist} onChange={(event) => setArtist(event.target.value)}/>
                     </div>
 
-                    <div classname="grid-item">
+                    <div className="grid-item">
 
                     <input type="text" placeholder="Album" value={album} onChange={(event) => setAlbum(event.target.value)}/>
                     </div>
 
-                    <div classname="grid-item">
+                    <div className="grid-item">
 
                     <input type="date" placeholder="Release Date" value={release_date} onChange={(event) => setRelease_date(event.target.value)}/>
                     </div>
 
-                    <div classname="grid-item">
+                    <div className="grid-item">
 
                     <input type="text" placeholder="Genre" value={genre} onChange={(event) => setGenre(event.target.value)}/>
                     </div>
                 <br/>
                 </div>
-                    <button type="submit" className="btn btn-primary" style={{"margin-right": "1em"}}>Add</button>
+                    <button type="submit" className="btn btn-primary">Add</button>
                 <br/>
             </center>
         </form>

@@ -25,9 +25,9 @@ const DisplaySongs = (props) => {
                             <div className='grid-item'>{songs.release_date}</div>
                             <div className='grid-item'>{songs.genre}</div>
                             <div className='grid-item'><button className='modalBtn' onClick={() => setOpenModel(true)}>Edit</button>
-                            <Modal open={openModal} parentSongs={songs} index={i}/>
+                            {/* <Modal open={openModal} index={songs.id}/> */}
                             <button onClick={()=>handleDelete(songs.id)}>X</button>
-                            <Modal open={openModal} onClose={()=>setOpenModel(false)}/></div>
+                            <Modal open={openModal} index={songs.id} onClose={()=>setOpenModel(false)}/></div>
                         </div>
                     </center>
                 </div>
