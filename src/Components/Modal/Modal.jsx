@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './Modal.css'
 import axios from 'axios';
 
-const Modal= ({open, onClose}, props) => {
+const Modal= ({open, onClose, index}) => {
 
     const [title, setTitle] = useState('');
     const [artist, setArtist] = useState('');
@@ -30,7 +30,7 @@ const Modal= ({open, onClose}, props) => {
         {
 
             console.log({newSong});
-            axios.put(`http://127.0.0.1:8000/music/${props.index}/`, newSong)
+            axios.put(`http://127.0.0.1:8000/music/${index}/`, newSong)
             setTitle("")
             setArtist("")
             setAlbum("")

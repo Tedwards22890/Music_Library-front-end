@@ -27,7 +27,7 @@ const DisplaySongs = (props) => {
                             <div className='grid-item'><button className='modalBtn' onClick={() => setOpenModel(true)}>Edit</button>
                             {/* <Modal open={openModal} index={songs.id}/> */}
                             <button onClick={()=>handleDelete(songs.id)}>X</button>
-                            <Modal open={openModal} index={songs.id} onClose={()=>setOpenModel(false)}/></div>
+                            <Modal open={openModal} onClose={()=>setOpenModel(false)} index={songs.id}/></div>
                         </div>
                     </center>
                 </div>
